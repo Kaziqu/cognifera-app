@@ -1,4 +1,4 @@
-export default function Card(props) {
+export default function Card(props: Record<string, unknown>) {
     return(
      <section className="py-8 bg-base-200">
         <h3 className="text-4xl mt-8 font-bold text-center mb-8 ">Service Section</h3>

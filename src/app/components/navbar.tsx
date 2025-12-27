@@ -6,7 +6,7 @@ export default function Navbar() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
-  const handleButton =(e) =>{
+  const handleButton =(e: React.MouseEvent<HTMLButtonElement>) =>{
     e.preventDefault();
     setLoading(true);
     setTimeout(() => {

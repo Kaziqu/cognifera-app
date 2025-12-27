@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const handleButton =(e) =>{
+  const handleButton =(e: React.MouseEvent<HTMLButtonElement>) =>{
     e.preventDefault();
     setLoading(true);
     setTimeout(() => {
