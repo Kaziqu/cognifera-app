@@ -1,0 +1,82 @@
+import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+export default function Navbar() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
+  const handleButton =(e) =>{
+    e.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      router.push("/login");
+    }, 1000);
+  }
+    return(
+    <div className="sticky top-0 z-10 w-full ">
+      <div className="max-w-4xl mx-auto rounded-b-lg my-2">
+        <div className="bg-white-100 shadow-lg rounded-b-lg">
+        <div className="navbar">
+            <div className="navbar-start">
+                <div className="dropdown">
+      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+      </div>
+      <ul
+        tabIndex={-1}
+        className="menu menu-sm dropdown-content bg-white-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        <li><a>Item 1</a>
+          <a>About</a>
+          <ul className="p-2">
+            <li><a>Sub 1</a></li>
+            <li><a>Submenu 2</a></li>
+          </ul>
+        </li>
+        <li><a>Item 3</a></li>
+      </ul>
+    </div>
+    <a className="ml-3 font-bold text-xl">Cognifera</a>
+  </div>
+  <div className="navbar-center hidden lg:flex ">
+    <ul className="menu menu-horizontal px-1">
+      <li className="relative group">
+        <a className="font-bold mr-2">Service</a>
+          <ul className="absolute left-0 top-full bg-white-100 w-40 z-1 hidden group-hover:block space-y-2">
+            <li>
+              <Link href="#Service" className=""><span>Penerbitan Buku</span></Link>
+              </li>
+            <li><Link href="#Service"><span>Research Consultant</span></Link></li>
+            <li><Link href="#Service"><span>OJS Management</span></Link></li>
+          </ul>
+        </li>
+      <li className="relative group">
+          <a className="font-bold mr-2">About</a>
+          <ul className="absolute left-0 top-full bg-white-100 w-40 z-1 hidden group-hover:block space-y-2">
+            <li>
+              <Link href="#profile"><span>Profile</span></Link></li>
+            <li><Link href="#profile"><span>Visi dan Misi </span></Link></li>
+          </ul>
+        </li>
+        <li className="relative group">
+        <a className="font-bold">Publications</a>
+          <ul className="absolute left-0 top-full bg-white-100 w-40 z-1 hidden group-hover:block space-y-2">
+            <li><a>Submenu 1</a></li>
+            <li><a>Submenu 2</a></li>
+          </ul>
+        </li>
+    </ul>
+  </div>
+  <div className="navbar-end">
+    <button onClick={handleButton} className="btn bg-white mr-4 rounded-lg text-black border-[#e5e5e5]">
+  <svg aria-label="Google logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path d="m0 0H512V512H0" fill="#fff"></path><path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"></path><path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"></path><path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"></path><path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"></path></g></svg>
+  {loading ? "Loading..." : "Login"}
+</button>
+  </div>
+</div>
+    </div>
+        </div>
+        </div>
+    )
+}

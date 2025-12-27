@@ -1,0 +1,24 @@
+
+generator client {
+    provider = "prisma-client"
+    output = "../src/generated/prisma"
+
+}
+datasource db {
+    provider = "postgresql"
+}
+
+enum BookStatus {
+    Pending
+    Published
+    Rejected
+}
+
+model Book {
+  id        Int        @id @default(autoincrement())
+  title     String
+  author    String
+  status    BookStatus @default(Pending)
+  createdAt DateTime   @default(now())
+  isDeleted Boolean @default(false)
+}
