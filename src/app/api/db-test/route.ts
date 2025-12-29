@@ -2,7 +2,6 @@ import { prisma } from "@/lib/prismaconfig"
 
 export async function GET() {
   try {
-    // TEST PALING MINIMAL
     await prisma.$queryRaw`SELECT 1`
 
     return Response.json({
